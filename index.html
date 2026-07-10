@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="favicon.png?v=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masuk - Simkopdes</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <main class="login-container">
+        
+        <section class="login-left">
+            <div class="logo-overlay">
+                <h1 class="logo-text">Simkopdes</h1>
+            </div>
+        </section>
+        
+        
+        <section class="login-right">
+            <div class="form-wrapper">
+                <h2 class="form-title">Masuk Ke Akun...</h2>
+                
+                <form id="loginForm" class="login-form" autocomplete="off">
+                    <div class="form-group">
+                        <label for="username">Email atau Username <span class="required">*</span></label>
+                        <input type="text" id="username" name="username" placeholder="Masukkan Email atau Username">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Kata Sandi <span class="required">*</span></label>
+                        <div class="password-wrapper">
+                            <input type="password" id="password" name="password" placeholder="Masukkan Kata Sandi">
+                            <button type="button" class="toggle-password" id="togglePassword" aria-label="Toggle password visibility">
+                                <i class="ph ph-eye-slash" id="eyeIcon"></i>
+                            </button>
+                        </div>
+                        <div class="forgot-wrapper">
+                            <a href="#" class="forgot-password">Lupa Kata Sandi</a>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Masuk</button>
+                    
+                    <div class="separator">
+                        <span>atau</span>
+                    </div>
+                    
+                    <button type="button" class="btn-secondary">
+                        
+                        <div class="ods-logo-placeholder">ODS</div>
+                        Masuk dengan ODS
+                    </button>
+                    
+                    <p class="register-info">
+                        Belum Punya Akun? <a href="#" class="register-link">Buat akun koperasi di sini</a>
+                    </p>
+                    
+                    <div class="home-link-wrapper">
+                        <a href="#" class="home-link">Halaman Utama</a>
+                    </div>
+                </form>
+                
+                <footer class="form-footer">
+                    <p>
+                        This site is protected by reCAPTCHA and the Google 
+                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and 
+                        <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a> apply.
+                    </p>
+                </footer>
+            </div>
+        </section>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+</html>

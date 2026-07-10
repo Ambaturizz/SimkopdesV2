@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="favicon.png?v=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banner - Simkopdes</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <link rel="stylesheet" href="css/profil.css">
+    <style>
+        .generator-card {
+            padding: 24px;
+        }
+        .generator-card h3 {
+            color: var(--dark-teal);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .sub-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+        .sub-tab-item {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-grey);
+            cursor: pointer;
+            background-color: transparent;
+            border: 1px solid transparent;
+        }
+        .sub-tab-item.active {
+            background-color: #ECFDF5;
+            color: #10B981;
+            border-color: #10B981;
+        }
+        .btn-download {
+            width: 100%;
+            padding: 14px;
+            background-color: #1E3A8A; /* Dark Blue */
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+        .banner-preview-box {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: var(--bg-light);
+            display: flex;
+            flex-direction: column;
+            aspect-ratio: 2 / 1.5; /* Approximating 2x1.5m */
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .banner-top {
+            background-color: #DC2626; /* Red */
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 24px;
+            gap: 24px;
+            color: white;
+        }
+        .banner-logo {
+            font-size: 48px;
+        }
+        .banner-title {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+        .banner-bottom {
+            background-color: white;
+            flex: 1.5;
+            padding: 24px;
+            position: relative;
+        }
+        .banner-details h2 {
+            color: #DC2626;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            border-bottom: 4px solid #DC2626;
+            display: inline-block;
+            padding-bottom: 4px;
+        }
+        .banner-details p {
+            font-size: 14px;
+            color: #4B5563;
+            margin-top: 8px;
+            font-weight: 600;
+        }
+        .banner-photo {
+            position: absolute;
+            bottom: 24px;
+            right: 24px;
+            width: 140px;
+            height: 180px;
+            background-color: #E5E7EB;
+            border: 4px solid white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9CA3AF;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-shell">
+        
+        
+        <aside class="sidebar">
+            <div class="sidebar-header"></div>
+            <nav class="sidebar-nav">
+                <a href="profil.html" class="nav-item">
+                    <i class="ph ph-house"></i>
+                    <span>Beranda</span>
+                </a>
+                <a href="semua-permohonan.html" class="nav-item">
+                    <i class="ph ph-file-text"></i>
+                    <span>Formulir Permohonan</span>
+                </a>
+                <a href="anggota.html" class="nav-item">
+                    <i class="ph ph-users"></i>
+                    <span>Anggota</span>
+
+                </a>
+                <a href="karyawan.html" class="nav-item">
+                    <i class="ph ph-user-circle"></i>
+                    <span>Karyawan</span>
+
+                </a>
+                <a href="rat-listing.html" class="nav-item">
+                    <i class="ph ph-users-three"></i>
+                    <span>Rapat Anggota Tahun (RAT)</span>
+                </a>
+                <a href="simpanan-tagihan.html" class="nav-item">
+                    <i class="ph ph-wallet"></i>
+                    <span>Simpanan</span>
+
+                </a>
+                <a href="pinjaman-tagihan.html" class="nav-item">
+                    <i class="ph ph-money"></i>
+                    <span>Pinjaman</span>
+
+                </a>
+                <a href="penjualan-transaksi.html" class="nav-item">
+                    <i class="ph ph-shopping-cart"></i>
+                    <span>Penjualan</span>
+
+                </a>
+                <a href="b2b-order.html" class="nav-item">
+                    <i class="ph ph-handshake"></i>
+                    <span>Off-Taker</span>
+
+                </a>
+                <a href="klinik-desa.html" class="nav-item">
+                    <i class="ph ph-first-aid"></i>
+                    <span>Klinik Desa</span>
+
+                </a>
+                <a href="apotek-desa.html" class="nav-item">
+                    <i class="ph ph-pill"></i>
+                    <span>Apotek Desa</span>
+
+                </a>
+                <a href="laporan-keuangan.html" class="nav-item">
+                    <i class="ph ph-chart-line-up"></i>
+                    <span>Laporan Keuangan</span>
+                </a>
+                <a href="shu.html" class="nav-item">
+                    <i class="ph ph-chart-pie-slice"></i>
+                    <span>SHU</span>
+                </a>
+                <a href="program-magang.html" class="nav-item">
+                    <i class="ph ph-student"></i>
+                    <span>Program Magang</span>
+                </a>
+                <a href="artikel.html" class="nav-item">
+                    <i class="ph ph-article"></i>
+                    <span>Artikel Koperasi</span>
+                </a>
+                <a href="kerja-sama.html" class="nav-item">
+                    <i class="ph ph-laptop"></i>
+                    <span>Penyedia Layanan Teknologi</span>
+                </a>
+                <a href="pengaduan-anggota.html" class="nav-item">
+                    <i class="ph ph-warning"></i>
+                    <span>Pengaduan Anggota</span>
+                </a>
+                <a href="jaga-desa.html" class="nav-item">
+                    <i class="ph ph-shield-check"></i>
+                    <span>Jaga Desa</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph ph-star"></i>
+                    <span>SiPoin</span>
+                    <span class="badge-gold">BARU</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph ph-chats"></i>
+                    <span>SiForum</span>
+                    <span class="badge-gold">BARU</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph ph-robot"></i>
+                    <span>KOPI (Koperasi AI)</span>
+                    <span class="badge-gold">BARU</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph ph-graduation-cap"></i>
+                    <span>SiKelas</span>
+                    <span class="badge-gold">BARU</span>
+                </a>
+            </nav>
+        </aside>
+
+        
+        <div class="main-wrapper">
+            
+            
+            <header class="top-header">
+                <div class="header-left">
+                    <h1 class="simkopdes-logo">Simkopdes</h1>
+                </div>
+                <div class="header-right">
+                    <button class="btn-verify">
+                        <i class="ph ph-warning-circle"></i>
+                        Verifikasi Email Anda
+                    </button>
+                    <div class="user-profile">
+                        <i class="ph ph-user"></i>
+                        <span>Manajer Bcdrw</span>
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <main class="main-content">
+                
+                <div class="tabs-bar">
+                    <a href="profil.html" class="tab">Profil</a>
+                    <a href="dokumen.html" class="tab">Dokumen</a>
+                    <a href="gerai.html" class="tab">Gerai</a>
+                    <a href="potensi-desa.html" class="tab">Potensi Desa</a>
+                    <a href="pengurus.html" class="tab">Pengurus</a>
+                    <a href="kbli.html" class="tab">KBLI</a>
+                    <a href="banner.html" class="tab active">Banner</a>
+                    <a href="akun-bank.html" class="tab">Akun Bank</a>
+                    <a href="modal.html" class="tab">Modal</a>
+                    <a href="aset.html" class="tab">Aset</a>
+                    <a href="iklim-desa.html" class="tab">Iklim Desa</a>
+                </div>
+
+                
+                <div class="tab-content">
+                    
+                    <div class="card generator-card">
+                        <h3>Generator Banner Koperasi</h3>
+                        
+                        <div class="sub-tabs">
+                            <button class="sub-tab-item active">Papan Nama (2x1.5m)</button>
+                            <button class="sub-tab-item">Banner X (4x1m)</button>
+                            <button class="sub-tab-item">Banner Y (3x2.5m)</button>
+                        </div>
+
+                        <button class="btn-download">
+                            <i class="ph ph-download-simple"></i> Download Banner
+                        </button>
+
+                        <div class="banner-preview-box">
+                            <div class="banner-top">
+                                <div class="banner-logo">
+                                    <i class="ph-fill ph-house-line"></i>
+                                </div>
+                                <div class="banner-title">
+                                    KOPERASI DESA<br>MERAH PUTIH
+                                </div>
+                            </div>
+                            <div class="banner-bottom">
+                                <div class="banner-details">
+                                    <h2>ENDALO</h2>
+                                    <p>Badan Hukum: AHU-0000207.AH.01.01.TAHUN 2026</p>
+                                    <p>Tanggal: 30-01-2004</p>
+                                </div>
+                                
+                                <div class="banner-photo">
+                                    <i class="ph-fill ph-user"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+
+        
+        <a href="https://wa.me/6281297086812?text=Halo%20Helpdesk%20SIMKOPDES%20V2%F0%9F%91%8B%0ASaya%20ingin%20melaporkan%20kendala%20dengan%20detail%20berikut%3A%0ANama%3A%20%0AEmail%3A%20%0ANama%20Koperasi%20%3A%20%0AKendala%3A%20%0ABukti%20(Foto%2FVideo)%3A%20%0A%0ATerima%20kasih" class="fab-whatsapp" aria-label="Chat WhatsApp" target="_blank">
+            <i class="ph-fill ph-whatsapp-logo"></i>
+        </a>
+    </div>
+</body>
+</html>

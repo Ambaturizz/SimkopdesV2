@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="favicon.png?v=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akun Bank - Simkopdes</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <link rel="stylesheet" href="css/profil.css">
+    <style>
+        .bank-management-container {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 24px;
+        }
+        
+        .bank-list-area {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .bank-list-area h3 {
+            color: var(--dark-teal);
+            margin-bottom: 8px;
+        }
+
+        .bank-item-card {
+            background-color: var(--dark-teal);
+            color: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .bank-item-card h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .bank-item-card .acc-num {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 4px;
+        }
+
+        .bank-item-card .acc-holder {
+            font-size: 12px;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+
+        .bank-card-actions {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-icon-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .btn-icon-circle:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .bank-action-area {
+            background-color: var(--white);
+            border-radius: 12px;
+            border: 2px dashed var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            text-align: center;
+            min-height: 400px;
+        }
+
+        .empty-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background-color: #F3F4F6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: var(--text-grey);
+            margin-bottom: 24px;
+        }
+
+        .bank-action-area h3 {
+            color: var(--dark-teal);
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .bank-action-area p {
+            color: var(--text-grey);
+            max-width: 300px;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .btn-add-bank {
+            background-color: #3B82F6; /* Blue */
+            color: var(--white);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-shell">
+        
+        
+        <aside class="sidebar">
+            <div class="sidebar-header"></div>
+            <nav class="sidebar-nav">
+                <a href="profil.html" class="nav-item">
+                    <i class="ph ph-house"></i>
+                    <span>Beranda</span>
+                </a>
+                <a href="semua-permohonan.html" class="nav-item">
+                    <i class="ph ph-file-text"></i>
+                    <span>Formulir Permohonan</span>
+                </a>
+                <a href="anggota.html" class="nav-item">
+                    <i class="ph ph-users"></i>
+                    <span>Anggota</span>
+
+                </a>
+                <a href="karyawan.html" class="nav-item">
+                    <i class="ph ph-user-circle"></i>
+                    <span>Karyawan</span>
+
+                </a>
+                <a href="rat-listing.html" class="nav-item">
+                    <i class="ph ph-users-three"></i>
+                    <span>Rapat Anggota Tahun (RAT)</span>
+                </a>
+                <a href="simpanan-tagihan.html" class="nav-item">
+                    <i class="ph ph-wallet"></i>
+                    <span>Simpanan</span>
+
+                </a>
+                <a href="pinjaman-tagihan.html" class="nav-item">
+                    <i class="ph ph-money"></i>
+                    <span>Pinjaman</span>
+
+                </a>
+                <a href="penjualan-transaksi.html" class="nav-item">
+                    <i class="ph ph-shopping-cart"></i>
+                    <span>Penjualan</span>
+
+                </a>
+                <a href="b2b-order.html" class="nav-item">
+                    <i class="ph ph-handshake"></i>
+                    <span>Off-Taker</span>
+
+                </a>
+                <a href="klinik-desa.html" class="nav-item">
+                    <i class="ph ph-first-aid"></i>
+                    <span>Klinik Desa</span>
+
+                </a>
+                <a href="apotek-desa.html" class="nav-item">
+                    <i class="ph ph-pill"></i>
+                    <span>Apotek Desa</span>
+
+                </a>
+                <a href="laporan-keuangan.html" class="nav-item">
+                    <i class="ph ph-chart-line-up"></i>
+                    <span>Laporan Keuangan</span>
+                </a>
+                <a href="shu.html" class="nav-item">
+                    <i class="ph ph-chart-pie-slice"></i>
+                    <span>SHU</span>
+                </a>
+                <a href="program-magang.html" class="nav-item">
+                    <i class="ph ph-student"></i>
+                    <span>Program Magang</span>
+                </a>
+                <a href="artikel.html" class="nav-item">
+                    <i class="ph ph-article"></i>
+                    <span>Artikel Koperasi</span>
+                </a>
+                <a href="kerja-sama.html" class="nav-item">
+                    <i class="ph ph-laptop"></i>
+                    <span>Penyedia Layanan Teknologi</span>
+                </a>
+                <a href="pengaduan-anggota.html" class="nav-item">
+                    <i class="ph ph-warning"></i>
+                    <span>Pengaduan Anggota</span>
+                </a>
+                <a href="jaga-desa.html" class="nav-item">
+                    <i class="ph ph-shield-check"></i>
+                    <span>Jaga Desa</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph ph-star"></i>
+                    <span>SiPoin</span>
+                    <span class="badge-gold">BARU</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph ph-chats"></i>
+                    <span>SiForum</span>
+                    <span class="badge-gold">BARU</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph ph-robot"></i>
+                    <span>KOPI (Koperasi AI)</span>
+                    <span class="badge-gold">BARU</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph ph-graduation-cap"></i>
+                    <span>SiKelas</span>
+                    <span class="badge-gold">BARU</span>
+                </a>
+            </nav>
+        </aside>
+
+        
+        <div class="main-wrapper">
+            
+            
+            <header class="top-header">
+                <div class="header-left">
+                    <h1 class="simkopdes-logo">Simkopdes</h1>
+                </div>
+                <div class="header-right">
+                    <button class="btn-verify">
+                        <i class="ph ph-warning-circle"></i>
+                        Verifikasi Email Anda
+                    </button>
+                    <div class="user-profile">
+                        <i class="ph ph-user"></i>
+                        <span>Manajer Bcdrw</span>
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <main class="main-content">
+                
+                <div class="tabs-bar">
+                    <a href="profil.html" class="tab">Profil</a>
+                    <a href="dokumen.html" class="tab">Dokumen</a>
+                    <a href="gerai.html" class="tab">Gerai</a>
+                    <a href="potensi-desa.html" class="tab">Potensi Desa</a>
+                    <a href="pengurus.html" class="tab">Pengurus</a>
+                    <a href="kbli.html" class="tab">KBLI</a>
+                    <a href="banner.html" class="tab">Banner</a>
+                    <a href="akun-bank.html" class="tab active">Akun Bank</a>
+                    <a href="modal.html" class="tab">Modal</a>
+                    <a href="aset.html" class="tab">Aset</a>
+                    <a href="iklim-desa.html" class="tab">Iklim Desa</a>
+                </div>
+
+                
+                <div class="tab-content">
+                    
+                    <div class="bank-management-container">
+                        
+                        
+                        <div class="bank-list-area">
+                            <h3>Daftar Akun Bank</h3>
+                            
+                            <div class="bank-item-card">
+                                <h4>BCA</h4>
+                                <p class="acc-num">52134212</p>
+                                <p class="acc-holder">A.N KOPERASI DESA MERAH PUTIH HOFI</p>
+                                <div class="bank-card-actions">
+                                    <button class="btn-icon-circle" title="Edit"><i class="ph ph-pencil-simple"></i></button>
+                                    <button class="btn-icon-circle" title="Hapus"><i class="ph ph-trash"></i></button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        
+                        <div class="bank-action-area">
+                            <div class="empty-icon-wrapper">
+                                <i class="ph-fill ph-plus-circle"></i>
+                            </div>
+                            <h3>Kelola Akun Bank</h3>
+                            <p>Pilih akun bank dari daftar untuk mengedit, atau tambah akun bank baru.</p>
+                            <button class="btn-add-bank">
+                                <i class="ph ph-plus"></i> Tambah Akun Bank
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </main>
+        </div>
+
+        
+        <a href="https://wa.me/6281297086812?text=Halo%20Helpdesk%20SIMKOPDES%20V2%F0%9F%91%8B%0ASaya%20ingin%20melaporkan%20kendala%20dengan%20detail%20berikut%3A%0ANama%3A%20%0AEmail%3A%20%0ANama%20Koperasi%20%3A%20%0AKendala%3A%20%0ABukti%20(Foto%2FVideo)%3A%20%0A%0ATerima%20kasih" class="fab-whatsapp" aria-label="Chat WhatsApp" target="_blank">
+            <i class="ph-fill ph-whatsapp-logo"></i>
+        </a>
+    </div>
+</body>
+</html>

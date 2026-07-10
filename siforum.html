@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="favicon.png?v=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiForum — Simkopdes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="css/profil.css">
+    <style>
+        .forum-hero {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 70%, #60a5fa 100%);
+            border-radius: 16px;
+            padding: 32px;
+            color: white;
+            display: flex; align-items: center; gap: 24px;
+            margin-bottom: 24px;
+            position: relative; overflow: hidden;
+        }
+        .forum-hero::before { content:''; position:absolute; top:-40px; right:-40px; width:180px; height:180px; background:rgba(255,255,255,0.06); border-radius:50%; }
+        .hero-icon-wrap { width:80px; height:80px; background:rgba(255,255,255,0.15); border-radius:20px; display:flex; align-items:center; justify-content:center; font-size:40px; flex-shrink:0; }
+        .hero-text h2 { font-size:22px; font-weight:700; margin:0 0 4px; }
+        .hero-text p { font-size:13px; opacity:0.85; margin:0; line-height:1.5; }
+        .forum-tabs { display:flex; gap:8px; margin-bottom:20px; }
+        .forum-tab { padding:8px 18px; border-radius:8px; font-size:13px; font-weight:500; cursor:pointer; border:1px solid #e5e7eb; background:white; color:#6b7280; transition:all 0.2s; }
+        .forum-tab.active { background:#2563eb; color:white; border-color:#2563eb; }
+        .forum-toolbar { display:flex; gap:10px; align-items:center; margin-bottom:16px; }
+        .forum-search { flex:1; display:flex; align-items:center; gap:8px; background:white; border:1px solid #e5e7eb; border-radius:8px; padding:0 12px; }
+        .forum-search input { border:none; outline:none; font-size:13px; padding:9px 0; width:100%; font-family:Inter,sans-serif; color:#374151; }
+        .forum-search i { color:#9ca3af; }
+        .btn-new-thread { display:flex; align-items:center; gap:6px; background:#2563eb; color:white; border:none; padding:9px 16px; border-radius:8px; font-size:13px; font-weight:600; cursor:pointer; white-space:nowrap; }
+        .thread-card { background:white; border:1px solid #e5e7eb; border-radius:12px; padding:18px 20px; margin-bottom:12px; display:flex; gap:14px; align-items:flex-start; transition:box-shadow 0.2s; }
+        .thread-card:hover { box-shadow:0 4px 12px rgba(0,0,0,0.08); }
+        .thread-avatar { width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; flex-shrink:0; color:white; }
+        .thread-body { flex:1; min-width:0; }
+        .thread-top { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:4px; }
+        .thread-category { font-size:10px; font-weight:700; padding:2px 8px; border-radius:20px; }
+        .thread-title { font-size:14px; font-weight:600; color:#111827; margin:4px 0; cursor:pointer; }
+        .thread-title:hover { color:#2563eb; }
+        .thread-preview { font-size:12px; color:#6b7280; line-height:1.5; margin:0 0 10px; }
+        .thread-meta { display:flex; align-items:center; gap:16px; font-size:11px; color:#9ca3af; }
+        .thread-meta span { display:flex; align-items:center; gap:4px; }
+        .tag-popular { background:#fef3c7; color:#d97706; font-size:10px; font-weight:700; padding:2px 8px; border-radius:20px; }
+        .tag-voting { background:#ede9fe; color:#7c3aed; font-size:10px; font-weight:700; padding:2px 8px; border-radius:20px; }
+        .tag-resolved { background:#d1fae5; color:#059669; font-size:10px; font-weight:700; padding:2px 8px; border-radius:20px; }
+        .voting-card { background:white; border:2px solid #7c3aed; border-radius:12px; padding:20px; margin-bottom:12px; }
+        .voting-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+        .voting-header h4 { font-size:14px; font-weight:600; color:#111827; margin:0; }
+        .voting-badge { background:#ede9fe; color:#7c3aed; font-size:10px; font-weight:700; padding:3px 10px; border-radius:20px; display:flex; align-items:center; gap:4px; }
+        .vote-option { background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; padding:12px 14px; margin-bottom:8px; cursor:pointer; transition:all 0.2s; }
+        .vote-option:hover { border-color:#7c3aed; background:#faf5ff; }
+        .vote-option .opt-label { font-size:13px; font-weight:500; color:#374151; margin-bottom:6px; }
+        .vote-bar-wrap { background:#e5e7eb; border-radius:99px; height:8px; overflow:hidden; }
+        .vote-bar-fill { height:100%; border-radius:99px; }
+        .vote-stats { display:flex; justify-content:space-between; font-size:11px; color:#6b7280; margin-top:4px; }
+        .voting-footer { display:flex; align-items:center; justify-content:space-between; margin-top:14px; font-size:12px; color:#6b7280; }
+        .btn-vote { background:#7c3aed; color:white; border:none; padding:7px 16px; border-radius:8px; font-size:12px; font-weight:600; cursor:pointer; }
+        .kpi-bar { display:flex; gap:12px; margin-bottom:20px; }
+        .kpi-mini { flex:1; background:white; border:1px solid #e5e7eb; border-radius:10px; padding:14px; text-align:center; }
+        .kpi-mini .km-val { font-size:20px; font-weight:700; color:#111827; }
+        .kpi-mini .km-lbl { font-size:11px; color:#6b7280; margin-top:2px; }
+    </style>
+</head>
+<body>
+    <div class="dashboard-shell">
+        <aside class="sidebar">
+            <div class="sidebar-header"></div>
+            <nav class="sidebar-nav">
+                <a href="profil.html" class="nav-item"><i class="ph ph-house"></i><span>Beranda</span></a>
+                <a href="semua-permohonan.html" class="nav-item"><i class="ph ph-file-text"></i><span>Formulir Permohonan</span></a>
+                <a href="anggota.html" class="nav-item"><i class="ph ph-users"></i><span>Anggota</span></a>
+                <a href="karyawan.html" class="nav-item"><i class="ph ph-user-circle"></i><span>Karyawan</span></a>
+                <a href="rat-listing.html" class="nav-item"><i class="ph ph-users-three"></i><span>Rapat Anggota Tahun (RAT)</span></a>
+                <a href="simpanan-tagihan.html" class="nav-item"><i class="ph ph-wallet"></i><span>Simpanan</span></a>
+                <a href="pinjaman-tagihan.html" class="nav-item"><i class="ph ph-money"></i><span>Pinjaman</span></a>
+                <a href="penjualan-transaksi.html" class="nav-item"><i class="ph ph-shopping-cart"></i><span>Penjualan</span></a>
+                <a href="b2b-order.html" class="nav-item"><i class="ph ph-handshake"></i><span>Off-Taker</span></a>
+                <a href="klinik-desa.html" class="nav-item"><i class="ph ph-first-aid"></i><span>Klinik Desa</span></a>
+                <a href="apotek-desa.html" class="nav-item"><i class="ph ph-pill"></i><span>Apotek Desa</span></a>
+                <a href="laporan-keuangan.html" class="nav-item"><i class="ph ph-chart-line-up"></i><span>Laporan Keuangan</span></a>
+                <a href="shu.html" class="nav-item"><i class="ph ph-chart-pie-slice"></i><span>SHU</span></a>
+                <a href="program-magang.html" class="nav-item"><i class="ph ph-student"></i><span>Program Magang</span></a>
+                <a href="artikel.html" class="nav-item"><i class="ph ph-article"></i><span>Artikel Koperasi</span></a>
+                <a href="kerja-sama.html" class="nav-item"><i class="ph ph-laptop"></i><span>Penyedia Layanan Teknologi</span></a>
+                <a href="pengaduan-anggota.html" class="nav-item"><i class="ph ph-warning"></i><span>Pengaduan Anggota</span></a>
+                <a href="jaga-desa.html" class="nav-item"><i class="ph ph-shield-check"></i><span>Jaga Desa</span></a>
+                <a href="sipoin.html" class="nav-item"><i class="ph ph-star"></i><span>SiPoin</span><span class="badge-gold">BARU</span></a>
+                <a href="siforum.html" class="nav-item active"><i class="ph ph-chats"></i><span>SiForum</span><span class="badge-gold">BARU</span></a>
+                <a href="kopi.html" class="nav-item"><i class="ph ph-robot"></i><span>KOPI (Koperasi AI)</span><span class="badge-gold">BARU</span></a>
+                <a href="sikelas.html" class="nav-item"><i class="ph ph-graduation-cap"></i><span>SiKelas</span><span class="badge-gold">BARU</span></a>
+            </nav>
+        </aside>
+
+        <div class="main-wrapper">
+            <header class="top-header">
+                <div class="header-left"><h1 class="simkopdes-logo">Simkopdes</h1></div>
+                <div class="header-right">
+                    <button class="btn-verify"><i class="ph ph-warning-circle"></i>Verifikasi Email Anda</button>
+                    <div class="user-profile"><i class="ph ph-user"></i><span>Manajer Bcdrw</span><i class="ph ph-caret-down"></i></div>
+                </div>
+            </header>
+
+            <main class="main-content">
+                <div class="forum-hero">
+                    <div class="hero-icon-wrap">💬</div>
+                    <div class="hero-text">
+                        <h2>SiForum — Ruang Musyawarah Digital</h2>
+                        <p>Sampaikan ide, aspirasi, dan kebutuhan desa Anda. Pengurus wajib merespons usulan populer. Dukung e-voting resmi berbasis NIK dengan asas satu anggota satu suara.</p>
+                    </div>
+                </div>
+
+                <div class="kpi-bar">
+                    <div class="kpi-mini"><div class="km-val" style="color:#2563eb;">24</div><div class="km-lbl">Utas Diskusi Aktif</div></div>
+                    <div class="kpi-mini"><div class="km-val" style="color:#7c3aed;">3</div><div class="km-lbl">Sesi Voting Berjalan</div></div>
+                    <div class="kpi-mini"><div class="km-val" style="color:#059669;">87%</div><div class="km-lbl">Tingkat Partisipasi</div></div>
+                    <div class="kpi-mini"><div class="km-val" style="color:#d97706;">156</div><div class="km-lbl">Total Anggota Aktif Forum</div></div>
+                </div>
+
+                <div class="forum-tabs">
+                    <div class="forum-tab active">Semua Diskusi</div>
+                    <div class="forum-tab">Populer</div>
+                    <div class="forum-tab">e-Voting & Polling</div>
+                    <div class="forum-tab">Pertanian</div>
+                    <div class="forum-tab">Permodalan</div>
+                    <div class="forum-tab">Logistik</div>
+                </div>
+
+                <div class="forum-toolbar">
+                    <div class="forum-search"><i class="ph ph-magnifying-glass"></i><input type="text" placeholder="Cari topik diskusi..."></div>
+                    <button class="btn-new-thread"><i class="ph ph-plus"></i> Buka Utas Baru</button>
+                </div>
+
+                <div class="voting-card">
+                    <div class="voting-header">
+                        <h4>🗳️ e-Voting Resmi: Penggunaan Dana Modal Koperasi Tahap II</h4>
+                        <span class="voting-badge"><i class="ph-fill ph-seal-check"></i> e-RAT Terverifikasi NIK</span>
+                    </div>
+                    <p style="font-size:12px;color:#6b7280;margin:0 0 14px;">Dana modal Rp 150 juta hasil kerjasama program Merah Putih akan dialokasikan ke unit usaha mana?</p>
+                    <div class="vote-option">
+                        <div class="opt-label">Pengembangan Toko Sembako Koperasi</div>
+                        <div class="vote-bar-wrap"><div class="vote-bar-fill" style="width:62%;background:linear-gradient(90deg,#7c3aed,#a78bfa);"></div></div>
+                        <div class="vote-stats"><span>62%</span><span>97 suara</span></div>
+                    </div>
+                    <div class="vote-option">
+                        <div class="opt-label">Klinik Desa & Pengadaan Obat</div>
+                        <div class="vote-bar-wrap"><div class="vote-bar-fill" style="width:28%;background:linear-gradient(90deg,#2563eb,#60a5fa);"></div></div>
+                        <div class="vote-stats"><span>28%</span><span>44 suara</span></div>
+                    </div>
+                    <div class="vote-option">
+                        <div class="opt-label">Modal Pinjaman Usaha Pertanian</div>
+                        <div class="vote-bar-wrap"><div class="vote-bar-fill" style="width:10%;background:linear-gradient(90deg,#059669,#34d399);"></div></div>
+                        <div class="vote-stats"><span>10%</span><span>16 suara</span></div>
+                    </div>
+                    <div class="voting-footer">
+                        <span><i class="ph ph-clock"></i> Berakhir: 15 Jul 2026 • 157 dari 220 anggota telah memilih</span>
+                        <button class="btn-vote">Berikan Suara Saya</button>
+                    </div>
+                </div>
+
+                <div class="thread-card">
+                    <div class="thread-avatar" style="background:#16a34a;">SH</div>
+                    <div class="thread-body">
+                        <div class="thread-top">
+                            <span class="thread-category" style="background:#d1fae5;color:#059669;">🌾 Pertanian</span>
+                            <span class="tag-popular">🔥 Topik Populer</span>
+                        </div>
+                        <div class="thread-title">Pengadaan Pupuk Bersubsidi — Stok Habis, Petani Kesulitan Musim Tanam</div>
+                        <p class="thread-preview">Sudah 3 minggu pupuk urea dan NPK tidak tersedia di toko koperasi. Petani terpaksa beli di luar desa dengan harga 2x lipat. Mohon pengurus segera berkoordinasi dengan Dinas Pertanian...</p>
+                        <div class="thread-meta">
+                            <span><i class="ph ph-user"></i> Suharto Wibowo</span>
+                            <span><i class="ph ph-chat-circle"></i> 43 komentar</span>
+                            <span><i class="ph ph-heart"></i> 87 dukungan</span>
+                            <span><i class="ph ph-clock"></i> 2 jam lalu</span>
+                            <span style="margin-left:auto;background:#fff3cd;color:#856404;font-size:11px;padding:2px 8px;border-radius:20px;">⚡ Menunggu Respons Pengurus</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="thread-card">
+                    <div class="thread-avatar" style="background:#2563eb;">RD</div>
+                    <div class="thread-body">
+                        <div class="thread-top">
+                            <span class="thread-category" style="background:#dbeafe;color:#2563eb;">🚰 Infrastruktur</span>
+                            <span class="tag-resolved">✅ Ditanggapi Pengurus</span>
+                        </div>
+                        <div class="thread-title">Perbaikan Jalan Pertanian RT 03 — Sudah 2 Tahun Rusak, Truk Panen Tidak Bisa Masuk</div>
+                        <p class="thread-preview">Kondisi jalan pertanian di RT 03 sangat memprihatinkan. Saat musim hujan tidak bisa dilalui sama sekali. Ini berdampak langsung pada biaya angkut hasil panen yang melonjak...</p>
+                        <div class="thread-meta">
+                            <span><i class="ph ph-user"></i> Rahayu Dewi</span>
+                            <span><i class="ph ph-chat-circle"></i> 28 komentar</span>
+                            <span><i class="ph ph-heart"></i> 64 dukungan</span>
+                            <span><i class="ph ph-clock"></i> 1 hari lalu</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="thread-card">
+                    <div class="thread-avatar" style="background:#d97706;">AG</div>
+                    <div class="thread-body">
+                        <div class="thread-top">
+                            <span class="thread-category" style="background:#fef3c7;color:#d97706;">💰 Permodalan</span>
+                            <span class="tag-voting">🗳️ Polling Aktif</span>
+                        </div>
+                        <div class="thread-title">Usulan Skema Pinjaman Khusus untuk Peternak Sapi — Bunga Lebih Ringan dan Tenor Fleksibel</div>
+                        <p class="thread-preview">Banyak peternak sapi di desa kita yang kesulitan mendapat modal karena skema pinjaman saat ini kurang sesuai dengan siklus bisnis peternakan. Usul agar koperasi buat produk pinjaman khusus...</p>
+                        <div class="thread-meta">
+                            <span><i class="ph ph-user"></i> Ahmad Gunawan</span>
+                            <span><i class="ph ph-chat-circle"></i> 19 komentar</span>
+                            <span><i class="ph ph-heart"></i> 52 dukungan</span>
+                            <span><i class="ph ph-clock"></i> 3 hari lalu</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="thread-card">
+                    <div class="thread-avatar" style="background:#7c3aed;">MN</div>
+                    <div class="thread-body">
+                        <div class="thread-top">
+                            <span class="thread-category" style="background:#ede9fe;color:#7c3aed;">📦 Logistik</span>
+                        </div>
+                        <div class="thread-title">Kebutuhan Armada Pengiriman untuk Produk Off-Taker — Hasil Panen Tidak Tertampung</div>
+                        <p class="thread-preview">Program Off-Taker yang sudah berjalan bagus, tapi sering terkendala karena tidak ada kendaraan pengiriman yang terjadwal. Produk menumpuk di gudang dan kualitasnya menurun...</p>
+                        <div class="thread-meta">
+                            <span><i class="ph ph-user"></i> Mulyadi Nugroho</span>
+                            <span><i class="ph ph-chat-circle"></i> 11 komentar</span>
+                            <span><i class="ph ph-heart"></i> 33 dukungan</span>
+                            <span><i class="ph ph-clock"></i> 5 hari lalu</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <a href="https://wa.me/6281297086812?text=Halo%20Helpdesk%20SIMKOPDES%20V2%F0%9F%91%8B%0ASaya%20ingin%20melaporkan%20kendala%20dengan%20detail%20berikut%3A%0ANama%3A%20%0AEmail%3A%20%0ANama%20Koperasi%20%3A%20%0AKendala%3A%20%0ABukti%20(Foto%2FVideo)%3A%20%0A%0ATerima%20kasih" class="fab-whatsapp" aria-label="Chat WhatsApp" target="_blank">
+            <i class="ph-fill ph-whatsapp-logo"></i>
+        </a>
+    </div>
+</body>
+</html>

@@ -22,16 +22,15 @@
 body {
     font-family: var(--font-family);
     background-color: var(--primary-color);
+    background-image: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
     color: var(--text-color);
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Suppress blue tap highlight on Android */
     position: relative;
     overflow-x: hidden;
-    /* Suppress blue tap highlight on Android */
     -webkit-tap-highlight-color: transparent;
 }
 

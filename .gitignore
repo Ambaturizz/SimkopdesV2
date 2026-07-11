@@ -1,0 +1,34 @@
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node & Dependencies
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# Capacitor / Mobile Builds
+android/
+ios/
+dist/
+build/
+out/
+www/
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Database Data / Logs
+*.sqlite
+*.db
+*.log
+
+# Scripts & Caches
+__pycache__/
+*.pyc

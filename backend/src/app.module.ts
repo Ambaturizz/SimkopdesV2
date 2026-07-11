@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { AiModule } from './ai/ai.module';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
@@ -13,6 +14,7 @@ dotenv.config();
       autoLoadEntities: true,
       synchronize: false, // Jangan gunakan sinkronisasi otomatis untuk produksi, kita akan pakai seed manual
     }),
+    AiModule,
   ],
   controllers: [AppController],
   providers: [AppService],

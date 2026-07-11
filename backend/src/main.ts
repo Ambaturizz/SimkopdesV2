@@ -8,7 +8,7 @@ async function bootstrap() {
     origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   });
-  await app.listen(3000);
-  console.log('Simkopdes Unified API Gateway is running on: http://localhost:3000');
+  await app.listen(3942);
+  console.log('Simkopdes Unified API Gateway is running on: http://localhost:3942');
 }
 bootstrap();

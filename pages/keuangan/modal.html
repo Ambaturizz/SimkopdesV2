@@ -2,9 +2,9 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="favicon.png?v=2">
+    <link rel="icon" type="image/png" href="../../favicon.png?v=2">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paramedis - Simkopdes</title>
+    <title>Modal - Simkopdes</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,100 +12,56 @@
     
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     
-    <link rel="stylesheet" href="css/profil.css">
+    <link rel="stylesheet" href="../../css/profil.css">
     <style>
         .page-header {
             margin-bottom: 24px;
         }
         .page-header h2 {
             color: var(--dark-teal);
-            font-size: 20px;
-            margin: 0 0 4px 0;
-            text-transform: uppercase;
+            font-size: 24px;
         }
         .page-header p {
             color: var(--text-grey);
             font-size: 14px;
-            margin: 0;
+            margin-top: 4px;
         }
-        
-        .kpi-row {
-            display: grid;
-            grid-template-columns: 1fr;
-            margin-bottom: 24px;
-        }
-        
-        .action-bar {
+        .toolbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 16px;
         }
-        
         .search-box {
-            position: relative;
+            display: flex;
+            align-items: center;
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 8px 12px;
+            width: 300px;
         }
         .search-box input {
-            padding: 8px 16px 8px 36px;
-            border: 1px solid #CBD5E1;
-            border-radius: 6px;
-            width: 300px;
+            border: none;
             outline: none;
+            width: 100%;
+            font-size: 14px;
         }
-        .search-box i {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #94A3B8;
-        }
-        
-        .btn-add {
-            background-color: var(--dark-teal);
-            color: white;
+        .btn-outline-teal {
+            border: 1px solid var(--dark-teal);
+            color: var(--dark-teal);
+            background: transparent;
             padding: 8px 16px;
             border-radius: 6px;
-            border: none;
             font-weight: 600;
+            cursor: pointer;
             display: flex;
             align-items: center;
             gap: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 14px;
         }
-        
-        .btn-outline {
-            background-color: white;
-            color: var(--text-dark);
-            padding: 4px 8px;
-            border-radius: 6px;
-            border: 1px solid #CBD5E1;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        
-        .btn-disabled {
-            background-color: #F1F5F9;
-            color: #94A3B8;
-            border-color: #E2E8F0;
-            cursor: not-allowed;
-        }
-        
-        .badge-status {
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-        .status-diminta {
-            background-color: #FEF3C7;
-            color: #D97706;
+        .btn-outline-teal:hover {
+            background-color: var(--dark-teal);
+            color: var(--white);
         }
     </style>
 </head>
@@ -116,102 +72,102 @@
         <aside class="sidebar">
             <div class="sidebar-header"></div>
             <nav class="sidebar-nav">
-                <a href="profil.html" class="nav-item">
+                <a href="../../profil.html" class="nav-item">
                     <i class="ph ph-house"></i>
                     <span>Beranda</span>
                 </a>
-                <a href="pages/layanan/semua-permohonan.html" class="nav-item">
+                <a href="../layanan/semua-permohonan.html" class="nav-item">
                     <i class="ph ph-file-text"></i>
                     <span>Formulir Permohonan</span>
                 </a>
-                <a href="pages/master/anggota.html" class="nav-item">
+                <a href="../master/anggota.html" class="nav-item">
                     <i class="ph ph-users"></i>
                     <span>Anggota</span>
 
                 </a>
-                <a href="pages/master/karyawan.html" class="nav-item active">
+                <a href="../master/karyawan.html" class="nav-item">
                     <i class="ph ph-user-circle"></i>
                     <span>Karyawan</span>
 
                 </a>
-                <a href="pages/rat/rat-listing.html" class="nav-item">
+                <a href="../rat/rat-listing.html" class="nav-item">
                     <i class="ph ph-users-three"></i>
                     <span>Rapat Anggota Tahun (RAT)</span>
                 </a>
-                <a href="pages/keuangan/simpanan-tagihan.html" class="nav-item">
+                <a href="simpanan-tagihan.html" class="nav-item">
                     <i class="ph ph-wallet"></i>
                     <span>Simpanan</span>
 
                 </a>
-                <a href="pages/keuangan/pinjaman-tagihan.html" class="nav-item">
+                <a href="pinjaman-tagihan.html" class="nav-item">
                     <i class="ph ph-money"></i>
                     <span>Pinjaman</span>
 
                 </a>
-                <a href="pages/bisnis/penjualan-transaksi.html" class="nav-item">
+                <a href="../bisnis/penjualan-transaksi.html" class="nav-item">
                     <i class="ph ph-shopping-cart"></i>
                     <span>Penjualan</span>
 
                 </a>
-                <a href="pages/bisnis/b2b-order.html" class="nav-item">
+                <a href="../bisnis/b2b-order.html" class="nav-item">
                     <i class="ph ph-handshake"></i>
                     <span>Off-Taker</span>
 
                 </a>
-                <a href="pages/layanan/klinik-desa.html" class="nav-item">
+                <a href="../layanan/klinik-desa.html" class="nav-item">
                     <i class="ph ph-first-aid"></i>
                     <span>Klinik Desa</span>
 
                 </a>
-                <a href="pages/layanan/apotek-desa.html" class="nav-item">
+                <a href="../layanan/apotek-desa.html" class="nav-item">
                     <i class="ph ph-pill"></i>
                     <span>Apotek Desa</span>
 
                 </a>
-                <a href="pages/keuangan/laporan-keuangan.html" class="nav-item">
+                <a href="laporan-keuangan.html" class="nav-item">
                     <i class="ph ph-chart-line-up"></i>
                     <span>Laporan Keuangan</span>
                 </a>
-                <a href="pages/keuangan/shu.html" class="nav-item">
+                <a href="shu.html" class="nav-item">
                     <i class="ph ph-chart-pie-slice"></i>
                     <span>SHU</span>
                 </a>
-                <a href="pages/layanan/program-magang.html" class="nav-item">
+                <a href="../layanan/program-magang.html" class="nav-item">
                     <i class="ph ph-student"></i>
                     <span>Program Magang</span>
                 </a>
-                <a href="pages/layanan/artikel.html" class="nav-item">
+                <a href="../layanan/artikel.html" class="nav-item">
                     <i class="ph ph-article"></i>
                     <span>Artikel Koperasi</span>
                 </a>
-                <a href="pages/layanan/kerja-sama.html" class="nav-item">
+                <a href="../layanan/kerja-sama.html" class="nav-item">
                     <i class="ph ph-laptop"></i>
                     <span>Penyedia Layanan Teknologi</span>
                 </a>
-                <a href="pages/layanan/pengaduan-anggota.html" class="nav-item">
+                <a href="../layanan/pengaduan-anggota.html" class="nav-item">
                     <i class="ph ph-warning"></i>
                     <span>Pengaduan Anggota</span>
                 </a>
-                <a href="pages/layanan/jaga-desa.html" class="nav-item">
+                <a href="../layanan/jaga-desa.html" class="nav-item">
                     <i class="ph ph-shield-check"></i>
                     <span>Jaga Desa</span>
                 </a>
-                <a href="pages/inovasi/sipoin.html" class="nav-item">
+                <a href="../inovasi/sipoin.html" class="nav-item">
                     <i class="ph ph-star"></i>
                     <span>SiPoin</span>
                     <span class="badge-gold">BARU</span>
                 </a>
-                <a href="pages/inovasi/siforum.html" class="nav-item">
+                <a href="../inovasi/siforum.html" class="nav-item">
                     <i class="ph ph-chats"></i>
                     <span>SiForum</span>
                     <span class="badge-gold">BARU</span>
                 </a>
-                <a href="pages/inovasi/kopi.html" class="nav-item">
+                <a href="../inovasi/kopi.html" class="nav-item">
                     <i class="ph ph-robot"></i>
                     <span>KOPI (Koperasi AI)</span>
                     <span class="badge-gold">BARU</span>
                 </a>
-                <a href="pages/inovasi/sikelas.html" class="nav-item">
+                <a href="../inovasi/sikelas.html" class="nav-item">
                     <i class="ph ph-graduation-cap"></i>
                     <span>SiKelas</span>
                     <span class="badge-gold">BARU</span>
@@ -243,34 +199,35 @@
             <main class="main-content">
                 
                 <div class="tabs-bar">
-                    <a href="pages/master/karyawan.html" class="tab">Karyawan</a>
-                    <a href="paramedis.html" class="tab active">Paramedis</a>
-                    <a href="pages/master/kelola-akses.html" class="tab">Kelola Akses</a>
+                    <a href="../../profil.html" class="tab">Profil</a>
+                    <a href="../bisnis/dokumen.html" class="tab">Dokumen</a>
+                    <a href="../bisnis/gerai.html" class="tab">Gerai</a>
+                    <a href="../layanan/potensi-desa.html" class="tab">Potensi Desa</a>
+                    <a href="../master/pengurus.html" class="tab">Pengurus</a>
+                    <a href="../bisnis/kbli.html" class="tab">KBLI</a>
+                    <a href="../../banner.html" class="tab">Banner</a>
+                    <a href="akun-bank.html" class="tab">Akun Bank</a>
+                    <a href="modal.html" class="tab active">Modal</a>
+                    <a href="../bisnis/aset.html" class="tab">Aset</a>
+                    <a href="../layanan/iklim-desa.html" class="tab">Iklim Desa</a>
                 </div>
 
                 
                 <div class="tab-content">
                     
-                    <div class="page-header">
-                        <h2>TENAGA MEDIS KLINIK KOPERASI DESA MERAH PUTIH ENDALO</h2>
-                        <p>Status Data: 11 Juli 2026 04:51</p>
-                    </div>
-
-                    <div class="kpi-row" style="max-width: 250px;">
-                        <div class="kpi-card outline-teal" style="background-color: var(--dark-teal); color: white;">
-                            <span class="kpi-title" style="color: rgba(255,255,255,0.8);">Jumlah Tenaga Medis</span>
-                            <span class="kpi-value" style="color: white;">7</span>
-                        </div>
-                    </div>
-
                     <div class="card table-section">
-                        <div class="action-bar">
+                        <div class="page-header">
+                            <h2>Modal</h2>
+                            <p>Kelola data modal koperasi</p>
+                        </div>
+
+                        <div class="toolbar">
                             <div class="search-box">
-                                <i class="ph ph-magnifying-glass"></i>
-                                <input type="text" placeholder="Cari nama, email, atau telepon">
+                                <input type="text" placeholder="Cari Berdasarkan Nama Sumber">
+                                <i class="ph ph-magnifying-glass" style="color: var(--text-grey);"></i>
                             </div>
-                            <button class="btn-add">
-                                <i class="ph ph-plus"></i> Tambah Tenaga Medis
+                            <button class="btn-outline-teal">
+                                <i class="ph ph-plus"></i> Tambah Modal Koperasi
                             </button>
                         </div>
                         
@@ -278,44 +235,70 @@
                             <table class="data-table teal-header">
                                 <thead>
                                     <tr>
-                                        <th>No.</th>
-                                        <th>Aksi</th>
-                                        <th>Nama</th>
-                                        <th>Posisi</th>
-                                        <th>Status</th>
-                                        <th>No. STR</th>
-                                        <th>Dokumen STR</th>
-                                        <th>Sumber Data</th>
-                                        <th>Email</th>
-                                        <th>Telepon</th>
-                                        <th>Total Koperasi</th>
+                                        <th>No</th>
+                                        <th>Opsi</th>
+                                        <th>Nomor Perjanjian</th>
+                                        <th>Tipe Sumber</th>
+                                        <th>Nama Sumber</th>
+                                        <th>Tipe Modal</th>
+                                        <th>Jumlah</th>
+                                        <th>Tanggal Diterima</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>1</td>
                                         <td>
-                                            <div style="display: flex; gap: 8px;">
-                                                <button class="btn-outline" title="Detail"><i class="ph ph-eye"></i></button>
-                                                <button class="btn-outline" style="color: #10B981; border-color: #10B981;" title="Edit"><i class="ph ph-pencil-simple"></i></button>
+                                            <div class="action-buttons">
+                                                <button class="action-btn view" title="Detail"><i class="ph ph-eye"></i></button>
+                                                <button class="action-btn edit" title="Ubah"><i class="ph ph-pencil-simple"></i></button>
+                                                <button class="action-btn delete" title="Hapus"><i class="ph ph-trash"></i></button>
                                             </div>
                                         </td>
-                                        <td>Dr. Ahmad</td>
-                                        <td>Dokter Umum</td>
-                                        <td><span class="badge-status status-diminta">Diminta</span></td>
-                                        <td>1234567890</td>
-                                        <td><button class="btn-outline btn-disabled" disabled>Lihat</button></td>
-                                        <td>Manual</td>
-                                        <td>ahmad@email.com</td>
-                                        <td>6281****487</td>
-                                        <td>1</td>
+                                        <td>KONTRAK007</td>
+                                        <td>INVESTOR</td>
+                                        <td>Mandiri Wowo</td>
+                                        <td>CSR</td>
+                                        <td>Rp 1.000.000.000</td>
+                                        <td>01 Jul 2026</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="action-btn view" title="Detail"><i class="ph ph-eye"></i></button>
+                                                <button class="action-btn edit" title="Ubah"><i class="ph ph-pencil-simple"></i></button>
+                                                <button class="action-btn delete" title="Hapus"><i class="ph ph-trash"></i></button>
+                                            </div>
+                                        </td>
+                                        <td>12121212</td>
+                                        <td>BANK</td>
+                                        <td>asasa</td>
+                                        <td>PINJAMAN</td>
+                                        <td>Rp 121.212.121</td>
+                                        <td>24 Jun 2026</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="action-btn view" title="Detail"><i class="ph ph-eye"></i></button>
+                                                <button class="action-btn edit" title="Ubah"><i class="ph ph-pencil-simple"></i></button>
+                                                <button class="action-btn delete" title="Hapus"><i class="ph ph-trash"></i></button>
+                                            </div>
+                                        </td>
+                                        <td>12121212</td>
+                                        <td>BANK</td>
+                                        <td>asasa</td>
+                                        <td>PINJAMAN</td>
+                                        <td>Rp 121.212.121</td>
+                                        <td>24 Jun 2026</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         
                         <div class="pagination-area">
-                            <div style="font-size: 12px; color: #64748B;">Total 7 data</div>
                             <div class="rows-per-page">
                                 <select>
                                     <option>10 / page</option>

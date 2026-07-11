@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../../favicon.png?v=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiKelas — Simkopdes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="../../css/profil.css">
+    <style>
+        .sikelas-hero {
+            background: linear-gradient(135deg, #1a1a5e 0%, #4338ca 60%, #818cf8 100%);
+            border-radius: 16px; padding: 32px;
+            color: white; display: flex; align-items: center; gap: 24px;
+            margin-bottom: 24px; position: relative; overflow: hidden;
+        }
+        .sikelas-hero::before { content:''; position:absolute; top:-30px; right:-30px; width:170px; height:170px; background:rgba(255,255,255,0.07); border-radius:50%; }
+        .hero-icon-wrap { width:80px; height:80px; background:rgba(255,255,255,0.15); border-radius:20px; display:flex; align-items:center; justify-content:center; font-size:42px; flex-shrink:0; }
+        .hero-text h2 { font-size:22px; font-weight:700; margin:0 0 4px; }
+        .hero-text p { font-size:13px; opacity:0.85; margin:0; line-height:1.5; }
+        .kpi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:22px; }
+        .kpi-card { background:white; border:1px solid #e5e7eb; border-radius:12px; padding:16px; text-align:center; }
+        .kpi-card .ki { width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:20px; margin:0 auto 8px; }
+        .kpi-card .kv { font-size:22px; font-weight:700; color:#111827; }
+        .kpi-card .kl { font-size:11px; color:#6b7280; margin-top:2px; }
+        .tabs-row { display:flex; gap:8px; margin-bottom:18px; }
+        .tab-btn { padding:8px 16px; border-radius:8px; font-size:13px; font-weight:500; cursor:pointer; border:1px solid #e5e7eb; background:white; color:#6b7280; transition:all 0.2s; }
+        .tab-btn.active { background:#4338ca; color:white; border-color:#4338ca; }
+        .page-grid { display:grid; grid-template-columns: 1fr 300px; gap:20px; align-items:start; }
+        .kelas-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+        .kelas-card { background:white; border:1px solid #e5e7eb; border-radius:14px; overflow:hidden; transition:box-shadow 0.2s; cursor:pointer; }
+        .kelas-card:hover { box-shadow:0 6px 20px rgba(0,0,0,0.1); }
+        .kelas-thumb { height:110px; display:flex; align-items:center; justify-content:center; font-size:50px; }
+        .kelas-body { padding:14px; }
+        .kelas-cat { font-size:10px; font-weight:700; padding:2px 8px; border-radius:20px; display:inline-block; margin-bottom:6px; }
+        .kelas-title { font-size:13px; font-weight:600; color:#111827; margin:0 0 6px; line-height:1.4; }
+        .kelas-desc { font-size:11px; color:#6b7280; line-height:1.4; margin:0 0 10px; }
+        .kelas-meta { display:flex; align-items:center; gap:10px; font-size:11px; color:#9ca3af; }
+        .kelas-meta span { display:flex; align-items:center; gap:3px; }
+        .kelas-footer { padding:10px 14px; border-top:1px solid #f3f4f6; display:flex; align-items:center; justify-content:space-between; }
+        .kelas-free { font-size:11px; font-weight:700; color:#059669; }
+        .kelas-premium { font-size:11px; font-weight:700; color:#7c3aed; }
+        .btn-mulai { background:#4338ca; color:white; border:none; padding:6px 14px; border-radius:8px; font-size:11px; font-weight:600; cursor:pointer; }
+        .kelas-progress { height:4px; background:#e5e7eb; border-radius:99px; margin-top:6px; overflow:hidden; }
+        .kelas-progress-fill { height:100%; border-radius:99px; background:linear-gradient(90deg,#4338ca,#818cf8); }
+        .sertif-card { background:white; border:1px solid #e5e7eb; border-radius:12px; padding:16px; display:flex; gap:12px; align-items:flex-start; margin-bottom:10px; }
+        .sertif-icon { width:44px; height:44px; background:linear-gradient(135deg,#fbbf24,#d97706); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
+        .sertif-body .sb-title { font-size:13px; font-weight:600; color:#111827; }
+        .sertif-body .sb-date { font-size:11px; color:#6b7280; margin-top:2px; }
+        .sertif-body .sb-badge { display:inline-flex; align-items:center; gap:4px; background:#d1fae5; color:#059669; font-size:10px; font-weight:700; padding:2px 8px; border-radius:20px; margin-top:4px; }
+        .forum-link { background:#ede9fe; border:1px solid #c4b5fd; border-radius:10px; padding:12px 14px; font-size:12px; color:#4338ca; display:flex; align-items:center; gap:8px; margin-bottom:8px; cursor:pointer; }
+        .forum-link:hover { background:#ddd6fe; }
+        .mentor-card { background:white; border:1px solid #e5e7eb; border-radius:12px; padding:14px; display:flex; gap:10px; align-items:center; margin-bottom:8px; }
+        .mentor-avatar { width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:18px; background:#f3f4f6; flex-shrink:0; }
+        .mentor-body .mb-name { font-size:13px; font-weight:600; color:#111827; }
+        .mentor-body .mb-spec { font-size:11px; color:#6b7280; }
+        .mentor-body .mb-rating { font-size:11px; color:#d97706; margin-top:2px; }
+        .my-progress-card { background:white; border:1px solid #e5e7eb; border-radius:12px; padding:16px; margin-bottom:16px; }
+        .my-progress-card h4 { font-size:13px; font-weight:600; color:#111827; margin:0 0 12px; }
+        .prog-item { display:flex; align-items:center; gap:10px; padding:6px 0; border-bottom:1px solid #f9fafb; }
+        .prog-item:last-child { border-bottom:none; }
+        .prog-icon { font-size:18px; }
+        .prog-name { flex:1; font-size:12px; color:#374151; }
+        .prog-pct { font-size:12px; font-weight:700; color:#4338ca; }
+        .prog-bar { height:4px; background:#e5e7eb; border-radius:99px; margin-top:3px; overflow:hidden; }
+        .prog-bar-fill { height:100%; border-radius:99px; background:linear-gradient(90deg,#4338ca,#818cf8); }
+    </style>
+</head>
+<body>
+    <div class="dashboard-shell">
+        <aside class="sidebar">
+            <div class="sidebar-header"></div>
+            <nav class="sidebar-nav">
+                <a href="../../profil.html" class="nav-item"><i class="ph ph-house"></i><span>Beranda</span></a>
+                <a href="../layanan/semua-permohonan.html" class="nav-item"><i class="ph ph-file-text"></i><span>Formulir Permohonan</span></a>
+                <a href="../master/anggota.html" class="nav-item"><i class="ph ph-users"></i><span>Anggota</span></a>
+                <a href="../master/karyawan.html" class="nav-item"><i class="ph ph-user-circle"></i><span>Karyawan</span></a>
+                <a href="../rat/rat-listing.html" class="nav-item"><i class="ph ph-users-three"></i><span>Rapat Anggota Tahun (RAT)</span></a>
+                <a href="../keuangan/simpanan-tagihan.html" class="nav-item"><i class="ph ph-wallet"></i><span>Simpanan</span></a>
+                <a href="../keuangan/pinjaman-tagihan.html" class="nav-item"><i class="ph ph-money"></i><span>Pinjaman</span></a>
+                <a href="../bisnis/penjualan-transaksi.html" class="nav-item"><i class="ph ph-shopping-cart"></i><span>Penjualan</span></a>
+                <a href="../bisnis/b2b-order.html" class="nav-item"><i class="ph ph-handshake"></i><span>Off-Taker</span></a>
+                <a href="../layanan/klinik-desa.html" class="nav-item"><i class="ph ph-first-aid"></i><span>Klinik Desa</span></a>
+                <a href="../layanan/apotek-desa.html" class="nav-item"><i class="ph ph-pill"></i><span>Apotek Desa</span></a>
+                <a href="../keuangan/laporan-keuangan.html" class="nav-item"><i class="ph ph-chart-line-up"></i><span>Laporan Keuangan</span></a>
+                <a href="../keuangan/shu.html" class="nav-item"><i class="ph ph-chart-pie-slice"></i><span>SHU</span></a>
+                <a href="../layanan/program-magang.html" class="nav-item"><i class="ph ph-student"></i><span>Program Magang</span></a>
+                <a href="../layanan/artikel.html" class="nav-item"><i class="ph ph-article"></i><span>Artikel Koperasi</span></a>
+                <a href="../layanan/kerja-sama.html" class="nav-item"><i class="ph ph-laptop"></i><span>Penyedia Layanan Teknologi</span></a>
+                <a href="../layanan/pengaduan-anggota.html" class="nav-item"><i class="ph ph-warning"></i><span>Pengaduan Anggota</span></a>
+                <a href="../layanan/jaga-desa.html" class="nav-item"><i class="ph ph-shield-check"></i><span>Jaga Desa</span></a>
+                <a href="sipoin.html" class="nav-item"><i class="ph ph-star"></i><span>SiPoin</span><span class="badge-gold">BARU</span></a>
+                <a href="siforum.html" class="nav-item"><i class="ph ph-chats"></i><span>SiForum</span><span class="badge-gold">BARU</span></a>
+                <a href="kopi.html" class="nav-item"><i class="ph ph-robot"></i><span>KOPI (Koperasi AI)</span><span class="badge-gold">BARU</span></a>
+                <a href="sikelas.html" class="nav-item active"><i class="ph ph-graduation-cap"></i><span>SiKelas</span><span class="badge-gold">BARU</span></a>
+            </nav>
+        </aside>
+
+        <div class="main-wrapper">
+            <header class="top-header">
+                <div class="header-left"><h1 class="simkopdes-logo">Simkopdes</h1></div>
+                <div class="header-right">
+                    <button class="btn-verify"><i class="ph ph-warning-circle"></i>Verifikasi Email Anda</button>
+                    <div class="user-profile"><i class="ph ph-user"></i><span>Manajer Bcdrw</span><i class="ph ph-caret-down"></i></div>
+                </div>
+            </header>
+
+            <main class="main-content">
+                <div class="sikelas-hero">
+                    <div class="hero-icon-wrap">🎓</div>
+                    <div class="hero-text">
+                        <h2>SiKelas — Platform Edukasi & Peningkatan Kapasitas</h2>
+                        <p>Kelas digital singkat untuk literasi keuangan, manajemen UMKM, pertanian modern, hingga digital marketing. Selesaikan kelas, dapatkan sertifikat digital, dan kumpulkan SiPoin.</p>
+                    </div>
+                </div>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="ki" style="background:#ede9fe;color:#4338ca;"><i class="ph ph-books"></i></div>
+                        <div class="kv">18</div><div class="kl">Kelas Tersedia</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="ki" style="background:#d1fae5;color:#059669;"><i class="ph ph-check-circle"></i></div>
+                        <div class="kv">3</div><div class="kl">Kelas Selesai Saya</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="ki" style="background:#fef3c7;color:#d97706;"><i class="ph ph-seal"></i></div>
+                        <div class="kv">3</div><div class="kl">Sertifikat Diperoleh</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="ki" style="background:#fce7f3;color:#be185d;"><i class="ph ph-star"></i></div>
+                        <div class="kv">+225</div><div class="kl">SiPoin dari SiKelas</div>
+                    </div>
+                </div>
+
+                <div class="tabs-row">
+                    <div class="tab-btn active">Semua Kelas</div>
+                    <div class="tab-btn">Kelas Saya</div>
+                    <div class="tab-btn">💰 Literasi Keuangan</div>
+                    <div class="tab-btn">🌾 Pertanian</div>
+                    <div class="tab-btn">🏪 UMKM & Bisnis</div>
+                    <div class="tab-btn">📱 Digital Marketing</div>
+                </div>
+
+                <div class="page-grid">
+                    <div>
+                        <div style="background:#ede9fe;border:1px solid #c4b5fd;border-radius:10px;padding:12px 14px;font-size:12px;color:#4338ca;display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+                            <i class="ph ph-chats" style="font-size:18px;"></i>
+                            <span><b>Dari SiForum:</b> Topik "Manajemen Keuangan Peternak Sapi" diminta 47 anggota. Kelas baru sedang disiapkan!</span>
+                        </div>
+
+                        <div class="kelas-grid">
+                            <div class="kelas-card">
+                                <div class="kelas-thumb" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0);">📊</div>
+                                <div class="kelas-body">
+                                    <span class="kelas-cat" style="background:#d1fae5;color:#059669;">💰 Literasi Keuangan</span>
+                                    <div class="kelas-title">Literasi Keuangan Dasar untuk Anggota Koperasi</div>
+                                    <div class="kelas-desc">Pahami cara mengelola pendapatan, tabungan, dan pinjaman agar keuangan keluarga makin sehat.</div>
+                                    <div class="kelas-meta">
+                                        <span><i class="ph ph-video"></i> 5 video</span>
+                                        <span><i class="ph ph-clock"></i> 45 menit</span>
+                                        <span><i class="ph ph-users"></i> 89 anggota</span>
+                                    </div>
+                                    <div class="kelas-progress"><div class="kelas-progress-fill" style="width:100%;"></div></div>
+                                </div>
+                                <div class="kelas-footer">
+                                    <span class="kelas-free">✅ Selesai • Gratis</span>
+                                    <span style="font-size:11px;color:#059669;font-weight:700;">+75 SiPoin</span>
+                                </div>
+                            </div>
+
+                            <div class="kelas-card">
+                                <div class="kelas-thumb" style="background:linear-gradient(135deg,#fef3c7,#fde68a);">🌾</div>
+                                <div class="kelas-body">
+                                    <span class="kelas-cat" style="background:#fef3c7;color:#d97706;">🌾 Pertanian</span>
+                                    <div class="kelas-title">Teknik Pertanian Modern & Efisiensi Pupuk</div>
+                                    <div class="kelas-desc">Pelajari teknik tanam modern, penggunaan pupuk yang efisien, dan cara meningkatkan hasil panen.</div>
+                                    <div class="kelas-meta">
+                                        <span><i class="ph ph-video"></i> 7 video</span>
+                                        <span><i class="ph ph-clock"></i> 60 menit</span>
+                                        <span><i class="ph ph-users"></i> 134 anggota</span>
+                                    </div>
+                                    <div class="kelas-progress"><div class="kelas-progress-fill" style="width:100%;"></div></div>
+                                </div>
+                                <div class="kelas-footer">
+                                    <span class="kelas-free">✅ Selesai • Gratis</span>
+                                    <span style="font-size:11px;color:#059669;font-weight:700;">+75 SiPoin</span>
+                                </div>
+                            </div>
+
+                            <div class="kelas-card">
+                                <div class="kelas-thumb" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe);">🏪</div>
+                                <div class="kelas-body">
+                                    <span class="kelas-cat" style="background:#dbeafe;color:#2563eb;">🏪 UMKM</span>
+                                    <div class="kelas-title">Manajemen UMKM Desa: Dari Produksi ke Pemasaran</div>
+                                    <div class="kelas-desc">Cara mengelola usaha mikro desa agar lebih terstruktur, menguntungkan, dan siap naik kelas.</div>
+                                    <div class="kelas-meta">
+                                        <span><i class="ph ph-video"></i> 6 video</span>
+                                        <span><i class="ph ph-clock"></i> 55 menit</span>
+                                        <span><i class="ph ph-users"></i> 67 anggota</span>
+                                    </div>
+                                    <div class="kelas-progress"><div class="kelas-progress-fill" style="width:65%;"></div></div>
+                                </div>
+                                <div class="kelas-footer">
+                                    <span class="kelas-free">📖 Sedang Belajar (65%) • Gratis</span>
+                                </div>
+                            </div>
+
+                            <div class="kelas-card">
+                                <div class="kelas-thumb" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8);">📱</div>
+                                <div class="kelas-body">
+                                    <span class="kelas-cat" style="background:#fce7f3;color:#be185d;">📱 Digital Marketing</span>
+                                    <div class="kelas-title">Digital Marketing untuk Produk Unggulan Desa</div>
+                                    <div class="kelas-desc">Cara memasarkan produk desa via media sosial, marketplace, dan platform Off-Taker koperasi.</div>
+                                    <div class="kelas-meta">
+                                        <span><i class="ph ph-video"></i> 8 video</span>
+                                        <span><i class="ph ph-clock"></i> 70 menit</span>
+                                        <span><i class="ph ph-users"></i> 45 anggota</span>
+                                    </div>
+                                    <div class="kelas-progress"><div class="kelas-progress-fill" style="width:0%;"></div></div>
+                                </div>
+                                <div class="kelas-footer">
+                                    <span class="kelas-free">Gratis</span>
+                                    <button class="btn-mulai">Mulai Kelas</button>
+                                </div>
+                            </div>
+
+                            <div class="kelas-card">
+                                <div class="kelas-thumb" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe);">🐄</div>
+                                <div class="kelas-body">
+                                    <span class="kelas-cat" style="background:#ede9fe;color:#7c3aed;">🐄 Peternakan</span>
+                                    <div class="kelas-title">Manajemen Keuangan Usaha Peternakan Sapi</div>
+                                    <div class="kelas-desc">Kelas eksklusif hasil usulan SiForum. Cara mengelola modal, biaya pakan, dan siklus penjualan ternak.</div>
+                                    <div class="kelas-meta">
+                                        <span><i class="ph ph-chats"></i> Dari SiForum</span>
+                                        <span><i class="ph ph-clock"></i> Segera hadir</span>
+                                    </div>
+                                </div>
+                                <div class="kelas-footer">
+                                    <span style="font-size:11px;color:#7c3aed;font-weight:600;">🔔 Daftarkan minat</span>
+                                    <button class="btn-mulai" style="background:#7c3aed;">Ingatkan Saya</button>
+                                </div>
+                            </div>
+
+                            <div class="kelas-card">
+                                <div class="kelas-thumb" style="background:linear-gradient(135deg,#fef9c3,#fef08a);">🎤</div>
+                                <div class="kelas-body">
+                                    <span class="kelas-cat" style="background:#fef9c3;color:#ca8a04;">⭐ Premium</span>
+                                    <div class="kelas-title">Kepemimpinan Koperasi & Tata Kelola Modern</div>
+                                    <div class="kelas-desc">Kelas lanjutan dengan mentor eksternal. Khusus pengurus dan calon pemimpin koperasi desa.</div>
+                                    <div class="kelas-meta">
+                                        <span><i class="ph ph-video"></i> 10 video</span>
+                                        <span><i class="ph ph-clock"></i> 90 menit</span>
+                                        <span><i class="ph ph-user-circle"></i> Mentor Eksternal</span>
+                                    </div>
+                                </div>
+                                <div class="kelas-footer">
+                                    <span class="kelas-premium">⭐ Premium — Rp 25.000</span>
+                                    <button class="btn-mulai" style="background:#ca8a04;">Daftar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="my-progress-card">
+                            <h4>📈 Progress Belajar Saya</h4>
+                            <div class="prog-item">
+                                <div class="prog-icon">📊</div>
+                                <div style="flex:1;">
+                                    <div class="prog-name">Literasi Keuangan Dasar</div>
+                                    <div class="prog-bar"><div class="prog-bar-fill" style="width:100%;background:linear-gradient(90deg,#059669,#34d399);"></div></div>
+                                </div>
+                                <div class="prog-pct" style="color:#059669;">✅ 100%</div>
+                            </div>
+                            <div class="prog-item">
+                                <div class="prog-icon">🌾</div>
+                                <div style="flex:1;">
+                                    <div class="prog-name">Teknik Pertanian Modern</div>
+                                    <div class="prog-bar"><div class="prog-bar-fill" style="width:100%;background:linear-gradient(90deg,#059669,#34d399);"></div></div>
+                                </div>
+                                <div class="prog-pct" style="color:#059669;">✅ 100%</div>
+                            </div>
+                            <div class="prog-item">
+                                <div class="prog-icon">🏪</div>
+                                <div style="flex:1;">
+                                    <div class="prog-name">Manajemen UMKM Desa</div>
+                                    <div class="prog-bar"><div class="prog-bar-fill" style="width:65%;"></div></div>
+                                </div>
+                                <div class="prog-pct">65%</div>
+                            </div>
+                        </div>
+
+                        <div class="info-card" style="background:white;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;margin-bottom:16px;">
+                            <div style="padding:14px 16px;border-bottom:1px solid #f3f4f6;font-size:13px;font-weight:600;color:#111827;">🏆 Sertifikat Saya</div>
+                            <div style="padding:14px 16px;">
+                                <div class="sertif-card" style="border:none;padding:0 0 12px;margin-bottom:12px;border-bottom:1px solid #f3f4f6;">
+                                    <div class="sertif-icon">🏅</div>
+                                    <div class="sertif-body">
+                                        <div class="sb-title">Literasi Keuangan Dasar</div>
+                                        <div class="sb-date">Selesai: 20 Jun 2026</div>
+                                        <div class="sb-badge"><i class="ph-fill ph-seal"></i> Sertifikat Terverifikasi</div>
+                                    </div>
+                                </div>
+                                <div class="sertif-card" style="border:none;padding:0 0 12px;margin-bottom:12px;border-bottom:1px solid #f3f4f6;">
+                                    <div class="sertif-icon">🏅</div>
+                                    <div class="sertif-body">
+                                        <div class="sb-title">Teknik Pertanian Modern</div>
+                                        <div class="sb-date">Selesai: 5 Jul 2026</div>
+                                        <div class="sb-badge"><i class="ph-fill ph-seal"></i> Sertifikat Terverifikasi</div>
+                                    </div>
+                                </div>
+                                <div class="sertif-card" style="border:none;padding:0;">
+                                    <div class="sertif-icon">🏅</div>
+                                    <div class="sertif-body">
+                                        <div class="sb-title">Literasi Digital Koperasi</div>
+                                        <div class="sb-date">Selesai: 1 Jun 2026</div>
+                                        <div class="sb-badge"><i class="ph-fill ph-seal"></i> Sertifikat Terverifikasi</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background:white;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;">
+                            <div style="padding:14px 16px;border-bottom:1px solid #f3f4f6;font-size:13px;font-weight:600;color:#111827;">👨‍🏫 Mentor Tersedia</div>
+                            <div style="padding:14px 16px;">
+                                <div class="mentor-card">
+                                    <div class="mentor-avatar">👨‍🌾</div>
+                                    <div class="mentor-body">
+                                        <div class="mb-name">Dr. Bambang Suryanto</div>
+                                        <div class="mb-spec">Ahli Pertanian & Agribisnis</div>
+                                        <div class="mb-rating">⭐ 4.9 • 234 siswa</div>
+                                    </div>
+                                </div>
+                                <div class="mentor-card">
+                                    <div class="mentor-avatar">👩‍💼</div>
+                                    <div class="mentor-body">
+                                        <div class="mb-name">Ibu Siti Rahayu, SE</div>
+                                        <div class="mb-spec">Konsultan UMKM & Keuangan Mikro</div>
+                                        <div class="mb-rating">⭐ 4.8 • 189 siswa</div>
+                                    </div>
+                                </div>
+                                <div class="mentor-card">
+                                    <div class="mentor-avatar">👨‍💻</div>
+                                    <div class="mentor-body">
+                                        <div class="mb-name">Rizky Pratama, M.Kom</div>
+                                        <div class="mb-spec">Digital Marketing & E-Commerce</div>
+                                        <div class="mb-rating">⭐ 4.7 • 156 siswa</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <a href="https://wa.me/6281297086812?text=Halo%20Helpdesk%20SIMKOPDES%20V2%F0%9F%91%8B%0ASaya%20ingin%20melaporkan%20kendala%20dengan%20detail%20berikut%3A%0ANama%3A%20%0AEmail%3A%20%0ANama%20Koperasi%20%3A%20%0AKendala%3A%20%0ABukti%20(Foto%2FVideo)%3A%20%0A%0ATerima%20kasih" class="fab-whatsapp" aria-label="Chat WhatsApp" target="_blank">
+            <i class="ph-fill ph-whatsapp-logo"></i>
+        </a>
+    </div>
+</body>
+</html>

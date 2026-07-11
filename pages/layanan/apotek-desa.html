@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../../favicon.png?v=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apotek Desa - Simkopdes</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <link rel="stylesheet" href="../../css/profil.css">
+    <style>
+        .page-header {
+            margin-bottom: 24px;
+        }
+        .page-header h2 {
+            color: var(--dark-teal);
+            font-size: 24px;
+            margin: 0 0 8px 0;
+        }
+        
+        .empty-state-banner {
+            background-color: #FEF2F2;
+            border: 1px solid #FECACA;
+            border-radius: 8px;
+            padding: 32px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .empty-state-banner i {
+            font-size: 48px;
+            color: #EF4444;
+        }
+        
+        .empty-state-banner h3 {
+            margin: 0;
+            color: #991B1B;
+            font-size: 18px;
+        }
+        
+        .empty-state-banner p {
+            margin: 0;
+            color: #B91C1C;
+            max-width: 500px;
+        }
+        
+        .btn-primary-alert {
+            background-color: #EF4444;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: none;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-shell">
+        
+        
+        <aside class="sidebar">
+            <div class="sidebar-header"></div>
+            <nav class="sidebar-nav">
+                <a href="../../profil.html" class="nav-item">
+                    <i class="ph ph-house"></i>
+                    <span>Beranda</span>
+                </a>
+                <a href="semua-permohonan.html" class="nav-item">
+                    <i class="ph ph-file-text"></i>
+                    <span>Formulir Permohonan</span>
+                </a>
+                <a href="../master/anggota.html" class="nav-item">
+                    <i class="ph ph-users"></i>
+                    <span>Anggota</span>
+
+                </a>
+                <a href="../master/karyawan.html" class="nav-item">
+                    <i class="ph ph-user-circle"></i>
+                    <span>Karyawan</span>
+
+                </a>
+                <a href="../rat/rat-listing.html" class="nav-item">
+                    <i class="ph ph-users-three"></i>
+                    <span>Rapat Anggota Tahun (RAT)</span>
+                </a>
+                <a href="../keuangan/simpanan-tagihan.html" class="nav-item">
+                    <i class="ph ph-wallet"></i>
+                    <span>Simpanan</span>
+
+                </a>
+                <a href="../keuangan/pinjaman-tagihan.html" class="nav-item">
+                    <i class="ph ph-money"></i>
+                    <span>Pinjaman</span>
+
+                </a>
+                <a href="../bisnis/penjualan-transaksi.html" class="nav-item">
+                    <i class="ph ph-shopping-cart"></i>
+                    <span>Penjualan</span>
+
+                </a>
+                <a href="../bisnis/b2b-order.html" class="nav-item">
+                    <i class="ph ph-handshake"></i>
+                    <span>Off-Taker</span>
+
+                </a>
+                <a href="klinik-desa.html" class="nav-item">
+                    <i class="ph ph-first-aid"></i>
+                    <span>Klinik Desa</span>
+
+                </a>
+                <a href="apotek-desa.html" class="nav-item active">
+                    <i class="ph ph-pill"></i>
+                    <span>Apotek Desa</span>
+
+                </a>
+                <a href="../keuangan/laporan-keuangan.html" class="nav-item">
+                    <i class="ph ph-chart-line-up"></i>
+                    <span>Laporan Keuangan</span>
+                </a>
+                <a href="../keuangan/shu.html" class="nav-item">
+                    <i class="ph ph-chart-pie-slice"></i>
+                    <span>SHU</span>
+                </a>
+                <a href="program-magang.html" class="nav-item">
+                    <i class="ph ph-student"></i>
+                    <span>Program Magang</span>
+                </a>
+                <a href="artikel.html" class="nav-item">
+                    <i class="ph ph-article"></i>
+                    <span>Artikel Koperasi</span>
+                </a>
+                <a href="kerja-sama.html" class="nav-item">
+                    <i class="ph ph-laptop"></i>
+                    <span>Penyedia Layanan Teknologi</span>
+                </a>
+                <a href="pengaduan-anggota.html" class="nav-item">
+                    <i class="ph ph-warning"></i>
+                    <span>Pengaduan Anggota</span>
+                </a>
+                <a href="jaga-desa.html" class="nav-item">
+                    <i class="ph ph-shield-check"></i>
+                    <span>Jaga Desa</span>
+                </a>
+                <a href="../inovasi/sipoin.html" class="nav-item">
+                    <i class="ph ph-star"></i>
+                    <span>SiPoin</span>
+                    <span class="badge-gold">BARU</span>
+                </a>
+                <a href="../inovasi/siforum.html" class="nav-item">
+                    <i class="ph ph-chats"></i>
+                    <span>SiForum</span>
+                    <span class="badge-gold">BARU</span>
+                </a>
+                <a href="../inovasi/kopi.html" class="nav-item">
+                    <i class="ph ph-robot"></i>
+                    <span>KOPI (Koperasi AI)</span>
+                    <span class="badge-gold">BARU</span>
+                </a>
+                <a href="../inovasi/sikelas.html" class="nav-item">
+                    <i class="ph ph-graduation-cap"></i>
+                    <span>SiKelas</span>
+                    <span class="badge-gold">BARU</span>
+                </a>
+            </nav>
+        </aside>
+
+        
+        <div class="main-wrapper">
+            
+            
+            <header class="top-header">
+                <div class="header-left">
+                    <h1 class="simkopdes-logo">Simkopdes</h1>
+                </div>
+                <div class="header-right">
+                    <button class="btn-verify">
+                        <i class="ph ph-warning-circle"></i>
+                        Verifikasi Email Anda
+                    </button>
+                    <div class="user-profile">
+                        <i class="ph ph-user"></i>
+                        <span>Manajer Bcdrw</span>
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <main class="main-content">
+                
+                <div class="page-header">
+                    <h2>Kelengkapan Dokumen Apotek Desa</h2>
+                </div>
+
+                
+                <div class="tabs-bar" style="margin-bottom: 24px;">`n                    <a href="apotek-desa.html" class="tab active">Transaksi Apotek</a>
+                    <a href="klinik-desa.html" class="tab">Pasien</a>
+                    <a href="#" class="tab">Kunjungan Pasien</a>
+                </div>
+
+                <div class="card table-section">
+                    <div class="empty-state-banner">
+                        <i class="ph-fill ph-warning-circle"></i>
+                        <h3>Dokumen operasional belum lengkap</h3>
+                        <p>Lengkapi dokumen operasional Apotek Desa melalui halaman Gerai/Outlet terlebih dahulu sebelum menggunakan modul ini.</p>
+                        <button class="btn-primary-alert">Ke Gerai/Outlet</button>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+        
+        <a href="https://wa.me/6281297086812?text=Halo%20Helpdesk%20SIMKOPDES%20V2%F0%9F%91%8B%0ASaya%20ingin%20melaporkan%20kendala%20dengan%20detail%20berikut%3A%0ANama%3A%20%0AEmail%3A%20%0ANama%20Koperasi%20%3A%20%0AKendala%3A%20%0ABukti%20(Foto%2FVideo)%3A%20%0A%0ATerima%20kasih" class="fab-whatsapp" aria-label="Chat WhatsApp" target="_blank">
+            <i class="ph-fill ph-whatsapp-logo"></i>
+        </a>
+    </div>
+</body>
+</html>

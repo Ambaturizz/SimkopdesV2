@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../../favicon.png?v=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Anggota - Simkopdes</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <link rel="stylesheet" href="../../css/profil.css">
+    <style>
+        .page-header {
+            margin-bottom: 24px;
+        }
+        .page-header h2 {
+            color: var(--dark-teal);
+            font-size: 24px;
+            margin: 0;
+        }
+        
+        .form-container {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .form-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+        .form-label .required {
+            color: #EF4444;
+        }
+        
+        .form-input {
+            padding: 10px 14px;
+            border: 1px solid #CBD5E1;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 14px;
+            color: var(--text-dark);
+            outline: none;
+        }
+        .form-input:focus {
+            border-color: var(--dark-teal);
+        }
+        
+        .form-helper {
+            font-size: 12px;
+            color: #64748B;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 32px;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 16px;
+            border-top: 1px solid #E2E8F0;
+            padding-top: 24px;
+        }
+        
+        .btn-primary {
+            background-color: var(--dark-teal);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 6px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .btn-outline {
+            background-color: white;
+            color: var(--dark-teal);
+            padding: 10px 24px;
+            border-radius: 6px;
+            border: 1px solid var(--dark-teal);
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-shell">
+        
+        
+        <aside class="sidebar">
+            <div class="sidebar-header"></div>
+            <nav class="sidebar-nav">
+                <a href="../../profil.html" class="nav-item">
+                    <i class="ph ph-house"></i>
+                    <span>Beranda</span>
+                </a>
+                <a href="../layanan/semua-permohonan.html" class="nav-item">
+                    <i class="ph ph-file-text"></i>
+                    <span>Formulir Permohonan</span>
+                </a>
+                <a href="anggota.html" class="nav-item active">
+                    <i class="ph ph-users"></i>
+                    <span>Anggota</span>
+
+                </a>
+                <a href="karyawan.html" class="nav-item">
+                    <i class="ph ph-user-circle"></i>
+                    <span>Karyawan</span>
+
+                </a>
+                <a href="../rat/rat-listing.html" class="nav-item">
+                    <i class="ph ph-users-three"></i>
+                    <span>Rapat Anggota Tahun (RAT)</span>
+                </a>
+                <a href="../keuangan/simpanan-tagihan.html" class="nav-item">
+                    <i class="ph ph-wallet"></i>
+                    <span>Simpanan</span>
+
+                </a>
+                <a href="../keuangan/pinjaman-tagihan.html" class="nav-item">
+                    <i class="ph ph-money"></i>
+                    <span>Pinjaman</span>
+
+                </a>
+                <a href="../bisnis/penjualan-transaksi.html" class="nav-item">
+                    <i class="ph ph-shopping-cart"></i>
+                    <span>Penjualan</span>
+
+                </a>
+                <a href="../bisnis/b2b-order.html" class="nav-item">
+                    <i class="ph ph-handshake"></i>
+                    <span>Off-Taker</span>
+
+                </a>
+                <a href="../layanan/klinik-desa.html" class="nav-item">
+                    <i class="ph ph-first-aid"></i>
+                    <span>Klinik Desa</span>
+
+                </a>
+                <a href="../layanan/apotek-desa.html" class="nav-item">
+                    <i class="ph ph-pill"></i>
+                    <span>Apotek Desa</span>
+
+                </a>
+                <a href="../keuangan/laporan-keuangan.html" class="nav-item">
+                    <i class="ph ph-chart-line-up"></i>
+                    <span>Laporan Keuangan</span>
+                </a>
+                <a href="../keuangan/shu.html" class="nav-item">
+                    <i class="ph ph-chart-pie-slice"></i>
+                    <span>SHU</span>
+                </a>
+                <a href="../layanan/program-magang.html" class="nav-item">
+                    <i class="ph ph-student"></i>
+                    <span>Program Magang</span>
+                </a>
+                <a href="../layanan/artikel.html" class="nav-item">
+                    <i class="ph ph-article"></i>
+                    <span>Artikel Koperasi</span>
+                </a>
+                <a href="../layanan/kerja-sama.html" class="nav-item">
+                    <i class="ph ph-laptop"></i>
+                    <span>Penyedia Layanan Teknologi</span>
+                </a>
+                <a href="../layanan/pengaduan-anggota.html" class="nav-item">
+                    <i class="ph ph-warning"></i>
+                    <span>Pengaduan Anggota</span>
+                </a>
+                <a href="../layanan/jaga-desa.html" class="nav-item">
+                    <i class="ph ph-shield-check"></i>
+                    <span>Jaga Desa</span>
+                </a>
+                <a href="../inovasi/sipoin.html" class="nav-item">
+                    <i class="ph ph-star"></i>
+                    <span>SiPoin</span>
+                    <span class="badge-gold">BARU</span>
+                </a>
+                <a href="../inovasi/siforum.html" class="nav-item">
+                    <i class="ph ph-chats"></i>
+                    <span>SiForum</span>
+                    <span class="badge-gold">BARU</span>
+                </a>
+                <a href="../inovasi/kopi.html" class="nav-item">
+                    <i class="ph ph-robot"></i>
+                    <span>KOPI (Koperasi AI)</span>
+                    <span class="badge-gold">BARU</span>
+                </a>
+                <a href="../inovasi/sikelas.html" class="nav-item">
+                    <i class="ph ph-graduation-cap"></i>
+                    <span>SiKelas</span>
+                    <span class="badge-gold">BARU</span>
+                </a>
+            </nav>
+        </aside>
+
+        
+        <div class="main-wrapper">
+            
+            
+            <header class="top-header">
+                <div class="header-left">
+                    <h1 class="simkopdes-logo">Simkopdes</h1>
+                </div>
+                <div class="header-right">
+                    <button class="btn-verify">
+                        <i class="ph ph-warning-circle"></i>
+                        Verifikasi Email Anda
+                    </button>
+                    <div class="user-profile">
+                        <i class="ph ph-user"></i>
+                        <span>Manajer Bcdrw</span>
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <main class="main-content">
+                
+                <div class="tabs-bar">
+                    <a href="anggota.html" class="tab active">Anggota</a>
+                </div>
+
+                
+                <div class="tab-content">
+
+                    <div class="form-container">
+                        <div class="page-header">
+                            <h2>Tambah Anggota</h2>
+                        </div>
+                        
+                        <form action="#">
+                            <div class="form-grid">
+                                
+                                <div style="display: flex; flex-direction: column; gap: 20px;">
+                                    <div class="form-group">
+                                        <label class="form-label">Nama Anggota <span class="required">*</span></label>
+                                        <input type="text" class="form-input" placeholder="Masukkan nama lengkap" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">No. HP Anggota <span class="required">*</span></label>
+                                        <input type="text" class="form-input" placeholder="Gunakan format angka tanpa spasi/simbol" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">NIK Anggota <span class="required">*</span></label>
+                                        <input type="text" class="form-input" placeholder="Masukkan 16 digit NIK" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">Tanggal Terdaftar Sebagai Anggota <span class="required">*</span></label>
+                                        <input type="date" class="form-input" required>
+                                        <span class="form-helper">Berpengaruh pada perhitungan kewajiban pembayaran dan hak simpanan anggota</span>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div style="display: flex; flex-direction: column; gap: 20px;">
+                                    <div class="form-group">
+                                        <label class="form-label">Jenis Kelamin <span class="required">*</span></label>
+                                        <select class="form-input" required>
+                                            <option value="" disabled selected>Pilih Jenis Kelamin</option>
+                                            <option value="L">Laki-laki</option>
+                                            <option value="P">Perempuan</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">Alamat <span class="required">*</span></label>
+                                        <textarea class="form-input" rows="4" placeholder="Masukkan alamat lengkap" style="resize: vertical;" required></textarea>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">Pekerjaan <span class="required">*</span></label>
+                                        <input type="text" class="form-input" placeholder="Pilih/isi pekerjaan" required>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="buat-akun" style="width: 16px; height: 16px; accent-color: var(--dark-teal);">
+                                <label for="buat-akun" style="font-size: 14px; color: var(--text-dark); cursor: pointer;">Buat akun anggota sekaligus</label>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <a href="anggota.html" class="btn-outline">Batalkan</a>
+                                <button type="submit" class="btn-primary">Daftar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+
+        
+        <a href="https://wa.me/6281297086812?text=Halo%20Helpdesk%20SIMKOPDES%20V2%F0%9F%91%8B%0ASaya%20ingin%20melaporkan%20kendala%20dengan%20detail%20berikut%3A%0ANama%3A%20%0AEmail%3A%20%0ANama%20Koperasi%20%3A%20%0AKendala%3A%20%0ABukti%20(Foto%2FVideo)%3A%20%0A%0ATerima%20kasih" class="fab-whatsapp" aria-label="Chat WhatsApp" target="_blank">
+            <i class="ph-fill ph-whatsapp-logo"></i>
+        </a>
+    </div>
+</body>
+</html>

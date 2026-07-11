@@ -2,18 +2,19 @@
 
 
 :root {
-    --dark-teal: #124B5D;
-    --olive-green: #95B338;
-    --olive-green-dark: #819E2B;
-    --mustard-yellow: #D69E2E;
-    --dark-red: #B91C1C;
-    --bg-light: #F5F6F8;
-    --white: #FFFFFF;
-    --text-dark: #1F2937;
-    --text-grey: #6B7280;
-    --border-color: #E5E7EB;
+    --dark-teal: #065366;
+    --dark-teal-hover: #025669;
+    --olive-green: #e4a80e;
+    --olive-green-dark: #d47800;
+    --mustard-yellow: #eb7500;
+    --dark-red: #cc3367;
+    --bg-light: #f3f4f6;
+    --white: #ffffff;
+    --text-dark: #374151;
+    --text-grey: #6b7280;
+    --border-color: #e5e7eb;
     
-    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
 * {
@@ -205,9 +206,15 @@ body {
 .card {
     background-color: var(--white);
     border-radius: 12px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
     overflow: hidden;
     margin-bottom: 24px;
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -600,12 +607,19 @@ body {
 
 .kpi-card {
     background-color: var(--white);
-    border-radius: 12px;
+    border-radius: 16px;
     padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kpi-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
 
